@@ -1,5 +1,6 @@
 package com.restaurante.api.novo.model;
 
+import com.restaurante.api.novo.enuns.StatusMesa;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,5 +1,7 @@
 package com.restaurante.api.novo.model;
 
+import com.restaurante.api.novo.enuns.StatusPagamento;
+import com.restaurante.api.novo.enuns.TiposPagamento;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -31,13 +33,13 @@ public class PagamentoModel {
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private TiposPagamentos tiposPagamentos;
+    private TiposPagamento tiposPagamentos;
 
     @CreationTimestamp
     @Column(nullable = false)
     private LocalDateTime dataPagamento;
 
     @Enumerated(EnumType.STRING)
-    private Statuspagamento statuspagamento;
+    private StatusPagamento statuspagamento;
 }
 

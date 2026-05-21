@@ -1,5 +1,6 @@
 package com.restaurante.api.novo.model;
 
+import com.restaurante.api.novo.enuns.TipoProduto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,14 +19,14 @@ import java.util.List;
 @NoArgsConstructor
 
 public class ProdutoModel {
-    
+
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
 
         @OneToMany(mappedBy = "produto")
-        private List<ItemPedidosModel> itemPedidos = new ArrayList<>();
+        private List<ItemPedidoModel> itemPedidos = new ArrayList<>();
 
         @Column(nullable = false)
         private String nome;
