@@ -3,6 +3,7 @@ package com.restaurante.api.novo.dto.request;
 import com.restaurante.api.novo.enuns.TipoUsuario;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public record RegistroRequest(
 
@@ -16,7 +17,7 @@ public record RegistroRequest(
         @NotBlank(message = "Senha obrigatoria")
         String senha,
 
-        @NotBlank(message = "Tipo de usuario e obrigatorio")
+        @NotNull(message = "Tipo de usuario e obrigatorio")
         TipoUsuario tipoUsuario
 
 ) {

@@ -11,6 +11,30 @@ import java.time.LocalDateTime;
 
 public class UsuarioModel {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id ;
+
+    @Column(nullable = false)
+    private String nome;
+
+    @Column(nullable = false)
+    private String email;
+
+    @Column(nullable = false)
+    private String senha;
+
+    @Column(nullable = false)
+    private boolean ativo ;
+
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private TipoUsuario tipoUsuario;
+
+    @CreationTimestamp
+    @Column(nullable = false,updatable = false)
+    private LocalDateTime localDateTime;
+
     public UsuarioModel(){
     }
 
@@ -80,27 +104,5 @@ public class UsuarioModel {
         this.localDateTime = localDateTime;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id ;
 
-    @Column(nullable = false)
-    private String nome;
-
-    @Column(nullable = false)
-    private String email;
-
-    @Column(nullable = false)
-    private String senha;
-
-    @Column(nullable = false)
-    private boolean ativo ;
-
-    @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private TipoUsuario tipoUsuario;
-
-    @CreationTimestamp
-    @Column(nullable = false,updatable = false)
-    private LocalDateTime localDateTime;
 }
