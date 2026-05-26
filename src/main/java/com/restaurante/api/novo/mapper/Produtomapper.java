@@ -12,21 +12,12 @@ public class Produtomapper {
     public ProdutoResponse toResponse(ProdutoModel produto) {
 
 
-        return new ProdutoResponse(
-                produto.getId(),
-                produto.getNome(),
-                produto.getDescricao(),
-                produto.getTipoProduto(),
-                produto.isDisponivel(),
-                produto.getPreco()
-        );
+        return new ProdutoResponse(produto.getId(), produto.getNome(), produto.getDescricao(), produto.getTipoProduto(), produto.isDisponivel(), produto.getPreco());
 
     }
 
     public List<ProdutoResponse> listResponse(List<ProdutoModel> produto) {
 
-        return produto.stream()
-                .map(this::toResponse)
-                .toList();
+        return produto.stream().map(this::toResponse).toList();
     }
 }

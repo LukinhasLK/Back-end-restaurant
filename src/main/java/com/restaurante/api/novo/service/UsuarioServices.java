@@ -22,10 +22,9 @@ public class UsuarioServices {
         return repository.findAll();
     }
 
-    public UsuarioModel buscarporId(Long id){
+    public UsuarioModel buscarporId(Long id) {
 
-        return repository.findById(id)
-                .orElseThrow(()-> new RuntimeException("Usuario não encontrado"));
+        return repository.findById(id).orElseThrow(() -> new RuntimeException("Usuario não encontrado"));
     }
 
     public UsuarioModel cadastrar(RegistroRequest dto) {
@@ -43,8 +42,7 @@ public class UsuarioServices {
 
     public UsuarioModel login(LoginRequest dto) {
 
-        UsuarioModel usuario = repository.findByEmail(dto.email())
-                .orElseThrow(() -> new RuntimeException("Email não encontrado"));
+        UsuarioModel usuario = repository.findByEmail(dto.email()).orElseThrow(() -> new RuntimeException("Email não encontrado"));
 
         if (!usuario.getSenha().equals(dto.senha())) {
             throw new RuntimeException("Senha incorreta");
@@ -53,8 +51,7 @@ public class UsuarioServices {
     }
 
     public UsuarioModel alterar(Long id, RegistroRequest dto) {
-        UsuarioModel usuario = repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Usuario não encontrado"));
+        UsuarioModel usuario = repository.findById(id).orElseThrow(() -> new RuntimeException("Usuario não encontrado"));
 
         usuario.setNome(dto.nome());
         usuario.setEmail(dto.email());
@@ -65,8 +62,7 @@ public class UsuarioServices {
     }
 
     public UsuarioModel desativarUsuario(Long id) {
-        UsuarioModel usuario = repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Usuario não encontrado"));
+        UsuarioModel usuario = repository.findById(id).orElseThrow(() -> new RuntimeException("Usuario não encontrado"));
 
         usuario.setAtivo(false);
 
@@ -74,8 +70,7 @@ public class UsuarioServices {
     }
 
     public UsuarioModel ativarUsuario(Long id) {
-        UsuarioModel usuario = repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Usuario não encontrado"));
+        UsuarioModel usuario = repository.findById(id).orElseThrow(() -> new RuntimeException("Usuario não encontrado"));
 
         usuario.setAtivo(true);
 
@@ -83,8 +78,7 @@ public class UsuarioServices {
     }
 
     public void deletar(Long id) {
-        UsuarioModel usuario = repository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Usuario não encontrado"));
+        UsuarioModel usuario = repository.findById(id).orElseThrow(() -> new RuntimeException("Usuario não encontrado"));
 
         repository.delete(usuario);
     }

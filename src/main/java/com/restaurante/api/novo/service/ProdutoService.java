@@ -77,7 +77,7 @@ public class ProdutoService {
         return repository.save(produto);
     }
 
-    public void deletar(Long id) {
+    public ProdutoModel deletar(Long id) {
 
         ProdutoModel produto = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Produto nao encontrado"));
@@ -85,5 +85,6 @@ public class ProdutoService {
         repository.delete(produto);
 
 
+        return produto;
     }
 }
