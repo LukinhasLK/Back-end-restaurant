@@ -1,9 +1,9 @@
 package com.restaurante.api.novo.repository;
 
-import com.restaurante.api.novo.model.ProdutoModel;
+import com.restaurante.api.novo.model.MesaModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ProdutoRepository extends JpaRepository<ProdutoModel,Long> {
+public interface MesaRepository extends JpaRepository<MesaModel,Long> {
 }
