@@ -1,4 +1,11 @@
 package com.restaurante.api.novo.dto.request;
 
-public record PedidoRequest() {
+import jakarta.validation.constraints.NotNull;
+
+public record PedidoRequest(
+        @NotNull(message = "Mesa obrigatoria")
+        Long mesaId,
+
+        @NotNull(message = "atendente e Obrigatorio")
+        Long atendenteId) {
 }
